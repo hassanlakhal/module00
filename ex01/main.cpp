@@ -6,13 +6,13 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/14 02:16:34 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/14 18:34:17 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-void Contact::display()
+void	PhoneBook::display()
 {
 	int i;
 
@@ -29,43 +29,42 @@ void Contact::display()
 	// }
 }
 
-void Contact::add()
-{
-	std::string number_str;
-	std::cout << "your first name : ";
-	getline(std::cin, this->first_name);
-	std::cout << "your last name : ";
-	getline(std::cin, this->last_name);
-	std::cout << "your number phone : ";
-	getline(std::cin, number_str);
-	this->number = std::atoi(number_str.c_str());
-	std::cout << "your Nickname : ";
-	getline(std::cin, this->nake_name);
-	std::cout << "your darkest secret : ";
-	getline(std::cin, this->darkest_secret);
-}
-std::string PhoneBook::rempler(void)
-{
-	
-}
-
-void PhoneBook::init(void)
+void PhoneBook::add()
 {
 	static int i;
 	PhoneBook phone_ob;
-	this->phone[i % 8].;
+	this->phone[i % 8].init();
 	i++;
+}
+std::string Contact::rempler(std::string str)
+{
+	std::string number_str;
+	std::string input;
+	if(!strcmp(str.c_str(),"your number phone : "))
+		this->number = std::atoi(number_str.c_str());
+	std::cout << str;
+	getline(std::cin, input);
+	return input;
+}
+
+void Contact::init(void)
+{
+	this->first_name = rempler("your first name : ");
+	this->last_name =  rempler("your last name : ");
+	this->nake_name = rempler("your Nickname : ");
+	this->number_of_phone = rempler("your number phone : ");
+	this->darkest_secret = rempler("your darkest secret : ");
 }
 
 int	main(void)
 {
-	Contact	contact;
+	PhoneBook	contact;
 
 	std::string str;
 	contact.display();
 	while (1)
 	{
-		//std::cout << ">";
+		std::cout << "Enter command ";
 		getline(std::cin, str);
 		if(!strcmp(str.c_str(),"ADD"))
 			contact.add();
