@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/15 01:06:44 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/15 03:52:05 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void dispaly(std::string str)
 {
 	if(str.length() > 10)
-			std::cout << std::setw(9) << str.substr(0,9) << ".|";
+		std::cout << std::setw(9) << str.substr(0,9) << ".|";
 	else
 		std::cout << std::setw(10) << str << "|";
 }
@@ -34,7 +34,7 @@ void	PhoneBook::display()
 
 	i = 0;
 	//PhoneBook ob;
-	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << std::endl <<"---------------------------------------------" << std::endl;
 	std::cout << "|                 PhoneBook                 |" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|   Index  |First Name|Last Name | Nickname |" << std::endl;
@@ -59,15 +59,36 @@ void PhoneBook::add()
 	i++;
 }
 
+bool parssing(std::string str)
+{
+	int i;
+
+	i = 0;
+	while(str.c_str()[i])
+	{
+		if(isdigit(str[i]))
+			return true;
+		i++;
+	}
+	return false;
+}
+
 std::string Contact::rempler(std::string str)
 {
 	std::string number_str;
 	std::string input;
-	// if(!strcmp(str.c_str(),"your number phone : "))
-	// 	this->number = std::atoi(number_str.c_str());
 	std::cout << str;
 	getline(std::cin, input);
-	return input;
+	if(!parssing(input))
+		return input;
+	else
+	{
+		std::cout << "invalid form for name" << std::endl;
+	}
+
+	// if(!strcmp(str.c_str(),"your number phone : "))
+	// 	this->number = std::atoi(number_str.c_str());
+	return ;
 }
 
 void Contact::init(void)
