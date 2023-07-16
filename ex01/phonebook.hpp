@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:25:57 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/14 22:36:05 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/16 00:03:09 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Contact
 		int number;
 	public:
 		void init();
-		void search();
 		void display_info();
+		void display_all(int index);
 		std::string rempler(std::string str);
 };
 
@@ -39,6 +39,7 @@ class PhoneBook
 	public:
 		void add();
 		void display();
+		void display_all_ph(int index, std::string str_search);
 		int id;
 };
 

@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/15 19:40:35 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/15 23:56:27 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,11 +129,29 @@ void Contact::init(void)
 	this->darkest_secret = rempler("Your darkest secret : ");
 }
 
+void Contact::display_all(int index)
+{
+	std::cout << "This info of index " << index << std::endl;
+	std::cout << this->first_name << std::endl;
+	std::cout << this->last_name << std::endl;
+	std::cout << this->nick_name << std::endl;
+	std::cout << this->number_of_phone << std::endl;
+	std::cout << this->darkest_secret << std::endl;
+}
+
+void PhoneBook::display_all_ph(int index, std::string str_search)
+{
+	index = atoi(str_search.c_str());
+	phone[index].display_all(index);
+}
+
 int	main(void)
 {
 	PhoneBook	contact;
+	int			index;
 
 	std::string str;
+	std::string str_search;
 	while (1)
 	{
 		std::cout << "Enter command ";
@@ -141,7 +159,19 @@ int	main(void)
 		if (!strcmp(str.c_str(), "ADD"))
 			contact.add();
 		else if (!strcmp(str.c_str(), "SEARCH"))
+		{
 			contact.display();
+			std::cout << "Enter index : ";
+			getline(std::cin, str_search);
+			if (str_search.length() == 1 && parssing(str_search))
+			{
+				index = atoi(str_search.c_str());
+				if (index == contact.id)
+					contact.display_all_ph(index, str_search);
+				else
+					std::cout << "Sorry this index not exist !!" << std::endl;
+			}
+		}
 		else if (!strcmp(str.c_str(), "EXIT"))
 			exit(0);
 	}
