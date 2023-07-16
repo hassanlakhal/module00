@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/16 03:35:38 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/16 20:57:58 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void PhoneBook::display()
 	std::cout << "|   Index  |First Name|Last Name | Nickname |" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
 	len = this->get_number_contact();
-	while (i <= len)
+	while (i < len)
 	{
 		std::cout << "|" << std::setw(10) << i << "|";
 		this->phone[i].display_info();
@@ -64,12 +64,12 @@ void PhoneBook::add()
 	PhoneBook	phone_ob;
 
 	this->phone[i % 8].init();
-	this->phone[i % 8].set_id(i);
+	this->phone[i % 8].set_id(i % 8);
 	this->phone[i % 8].get_id();
-	this->number_contact = i;
+	this->number_contact = i + 1;
 	this->id[i % 8] = this->phone[i % 8].get_id();
-	if (this->id[i % 8] >= 8)
-		this->id[i % 8]= 0;
+	if (this->number_contact >= 8)
+		this->number_contact = 8;
 	i++;
 }
 
@@ -156,9 +156,9 @@ void Contact::init(void)
 void Contact::display_all(int index)
 {
 	std::cout << "This info of index " << index << " :"<< std::endl;
-	std::cout << "First name : "<<this->first_name << std::endl;
-	std::cout << "Last name : "<<this->last_name << std::endl;
-	std::cout << "Nick name : "<<this->nick_name << std::endl;
+	std::cout << "First name : "<< this->first_name << std::endl;
+	std::cout << "Last name : "<< this->last_name << std::endl;
+	std::cout << "Nick name : "<< this->nick_name << std::endl;
 	std::cout << "Number of phone : " << this->number_of_phone << std::endl;
 	std::cout << "Darkest_secret : " << this->darkest_secret << std::endl;
 }
@@ -180,8 +180,12 @@ int	main(void)
 	{
 		std::cout << "Enter command ";
 		getline(std::cin, str);
+
 		if (!strcmp(str.c_str(), "ADD"))
+		{
+			std::cout << std::endl;
 			contact.add();
+		}
 		else if (!strcmp(str.c_str(), "SEARCH"))
 		{
 			contact.display();
