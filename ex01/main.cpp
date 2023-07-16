@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/15 23:56:27 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/16 01:38:33 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,16 +163,20 @@ int	main(void)
 			contact.display();
 			std::cout << "Enter index : ";
 			getline(std::cin, str_search);
-			if (str_search.length() == 1 && parssing(str_search))
+			if (parssing(str_search))
 			{
 				index = atoi(str_search.c_str());
-				if (index == contact.id)
+				if (index == contact.id && index < 8)
 					contact.display_all_ph(index, str_search);
 				else
 					std::cout << "Sorry this index not exist !!" << std::endl;
 			}
+			else
+				std::cout << "Invalid form for index" << std::endl;
 		}
 		else if (!strcmp(str.c_str(), "EXIT"))
 			exit(0);
+		else
+			std::cout << "This command not exist !!" << std::endl;
 	}
 }
