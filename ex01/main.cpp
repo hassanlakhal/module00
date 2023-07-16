@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/16 20:57:58 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/16 22:14:54 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,8 @@ std::string Contact::rempler(std::string str)
 				flag = 1;
 			}
 		}
+		else if(!str.compare("Your darkest secret : "))
+			return (input);
 		if (!parssing(input) && flag != 1)
 			return (input);
 		else if (flag == 0)
@@ -155,12 +157,15 @@ void Contact::init(void)
 
 void Contact::display_all(int index)
 {
+	std::cout << std::endl;
 	std::cout << "This info of index " << index << " :"<< std::endl;
+	std::cout << std::endl;
 	std::cout << "First name : "<< this->first_name << std::endl;
 	std::cout << "Last name : "<< this->last_name << std::endl;
 	std::cout << "Nick name : "<< this->nick_name << std::endl;
 	std::cout << "Number of phone : " << this->number_of_phone << std::endl;
 	std::cout << "Darkest_secret : " << this->darkest_secret << std::endl;
+	std::cout << std::endl;
 }
 
 void PhoneBook::display_all_ph(int index, std::string str_search)
@@ -176,6 +181,7 @@ int	main(void)
 
 	std::string str;
 	std::string str_search;
+	index = 0;
 	while (1)
 	{
 		std::cout << "Enter command ";
@@ -189,12 +195,15 @@ int	main(void)
 		else if (!strcmp(str.c_str(), "SEARCH"))
 		{
 			contact.display();
+			std::cout << std::endl;
 			std::cout << "Enter index : ";
 			getline(std::cin, str_search);
 			if (parssing(str_search))
 			{
 				index = atoi(str_search.c_str());
-				if (index == contact.get_index(index) && index < 8)
+				if(index > 7 || index < 0)
+					std::cout << "Sorry this index not exist !!" << std::endl;
+				else if (index == contact.get_index(index))
 					contact.display_all_ph(index, str_search);
 				else
 					std::cout << "Sorry this index not exist !!" << std::endl;
