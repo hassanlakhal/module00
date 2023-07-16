@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/16 01:38:33 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/16 03:35:38 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,17 @@ void Contact::display_info(void)
 void PhoneBook::display()
 {
 	int	i;
+	int len;
 
 	i = 0;
-	std::cout << std::endl
-				<< "---------------------------------------------" << std::endl;
+	std::cout << std::endl;
+	std::cout<< "---------------------------------------------" << std::endl;
 	std::cout << "|                 PhoneBook                 |" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|   Index  |First Name|Last Name | Nickname |" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
-	while (i <= this->id)
+	len = this->get_number_contact();
+	while (i <= len)
 	{
 		std::cout << "|" << std::setw(10) << i << "|";
 		this->phone[i].display_info();
@@ -47,16 +49,38 @@ void PhoneBook::display()
 	}
 }
 
+void Contact::set_id(int index)
+{
+	this->ID = index;
+}
+int Contact::get_id()
+{
+	return ID;
+}
+
 void PhoneBook::add()
 {
 	static int	i;
 	PhoneBook	phone_ob;
 
 	this->phone[i % 8].init();
-	this->id = i;
-	if (this->id >= 8)
-		this->id = 0;
+	this->phone[i % 8].set_id(i);
+	this->phone[i % 8].get_id();
+	this->number_contact = i;
+	this->id[i % 8] = this->phone[i % 8].get_id();
+	if (this->id[i % 8] >= 8)
+		this->id[i % 8]= 0;
 	i++;
+}
+
+int PhoneBook::get_index(int index)
+{
+	return this->id[index];
+}
+
+int PhoneBook::get_number_contact()
+{
+	return number_contact;
 }
 
 bool	parssing_l(std::string str)
@@ -131,12 +155,12 @@ void Contact::init(void)
 
 void Contact::display_all(int index)
 {
-	std::cout << "This info of index " << index << std::endl;
-	std::cout << this->first_name << std::endl;
-	std::cout << this->last_name << std::endl;
-	std::cout << this->nick_name << std::endl;
-	std::cout << this->number_of_phone << std::endl;
-	std::cout << this->darkest_secret << std::endl;
+	std::cout << "This info of index " << index << " :"<< std::endl;
+	std::cout << "First name : "<<this->first_name << std::endl;
+	std::cout << "Last name : "<<this->last_name << std::endl;
+	std::cout << "Nick name : "<<this->nick_name << std::endl;
+	std::cout << "Number of phone : " << this->number_of_phone << std::endl;
+	std::cout << "Darkest_secret : " << this->darkest_secret << std::endl;
 }
 
 void PhoneBook::display_all_ph(int index, std::string str_search)
@@ -166,7 +190,7 @@ int	main(void)
 			if (parssing(str_search))
 			{
 				index = atoi(str_search.c_str());
-				if (index == contact.id && index < 8)
+				if (index == contact.get_index(index) && index < 8)
 					contact.display_all_ph(index, str_search);
 				else
 					std::cout << "Sorry this index not exist !!" << std::endl;
