@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/16 22:14:54 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/17 01:15:13 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,14 +174,35 @@ void PhoneBook::display_all_ph(int index, std::string str_search)
 	phone[index].display_all(index);
 }
 
+void PhoneBook::search()
+{
+	int			index;
+	std::string str_search;
+	index = 0;
+	this->display();
+	std::cout << std::endl;
+	std::cout << "Enter index : ";
+	getline(std::cin, str_search);
+	if (parssing(str_search))
+	{
+		index = atoi(str_search.c_str());
+		if(index > 7 || index < 0)
+		std::cout << "Sorry this index not exist !!" << std::endl;
+		else if (index == this->get_index(index))
+			this->display_all_ph(index, str_search);
+		else
+			std::cout << "Sorry this index not exist !!" << std::endl;
+	}
+	else
+		std::cout << "Invalid form for index" << std::endl;
+}
+
 int	main(void)
 {
 	PhoneBook	contact;
-	int			index;
+
 
 	std::string str;
-	std::string str_search;
-	index = 0;
 	while (1)
 	{
 		std::cout << "Enter command ";
@@ -193,24 +214,7 @@ int	main(void)
 			contact.add();
 		}
 		else if (!strcmp(str.c_str(), "SEARCH"))
-		{
-			contact.display();
-			std::cout << std::endl;
-			std::cout << "Enter index : ";
-			getline(std::cin, str_search);
-			if (parssing(str_search))
-			{
-				index = atoi(str_search.c_str());
-				if(index > 7 || index < 0)
-					std::cout << "Sorry this index not exist !!" << std::endl;
-				else if (index == contact.get_index(index))
-					contact.display_all_ph(index, str_search);
-				else
-					std::cout << "Sorry this index not exist !!" << std::endl;
-			}
-			else
-				std::cout << "Invalid form for index" << std::endl;
-		}
+			contact.search();
 		else if (!strcmp(str.c_str(), "EXIT"))
 			exit(0);
 		else

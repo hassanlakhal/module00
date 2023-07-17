@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:25:57 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/16 03:33:27 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/17 01:10:49 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class PhoneBook
 	public:
 		void add();
 		void display();
+		void search();
 		int get_number_contact();
 		int get_index(int index);
 		void display_all_ph(int index, std::string str_search);
