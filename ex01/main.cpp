@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/17 01:15:13 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/17 23:01:14 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void Contact::display_info(void)
 void PhoneBook::display()
 {
 	int	i;
-	int len;
+	int	len;
 
 	i = 0;
 	std::cout << std::endl;
-	std::cout<< "---------------------------------------------" << std::endl;
+	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|                 PhoneBook                 |" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|   Index  |First Name|Last Name | Nickname |" << std::endl;
@@ -55,7 +55,7 @@ void Contact::set_id(int index)
 }
 int Contact::get_id()
 {
-	return ID;
+	return (ID);
 }
 
 void PhoneBook::add()
@@ -75,12 +75,12 @@ void PhoneBook::add()
 
 int PhoneBook::get_index(int index)
 {
-	return this->id[index];
+	return (this->id[index]);
 }
 
 int PhoneBook::get_number_contact()
 {
-	return number_contact;
+	return (number_contact);
 }
 
 bool	parssing_l(std::string str)
@@ -136,7 +136,7 @@ std::string Contact::rempler(std::string str)
 				flag = 1;
 			}
 		}
-		else if(!str.compare("Your darkest secret : "))
+		else if (!str.compare("Your darkest secret : "))
 			return (input);
 		if (!parssing(input) && flag != 1)
 			return (input);
@@ -144,6 +144,15 @@ std::string Contact::rempler(std::string str)
 			std::cout << "Invalid form for name" << std::endl;
 	}
 	return (input.substr(0, 0));
+}
+
+PhoneBook::PhoneBook()
+{
+	this->number_contact = -1;
+}
+
+PhoneBook::~PhoneBook()
+{
 }
 
 void Contact::init(void)
@@ -158,11 +167,11 @@ void Contact::init(void)
 void Contact::display_all(int index)
 {
 	std::cout << std::endl;
-	std::cout << "This info of index " << index << " :"<< std::endl;
+	std::cout << "This info of index " << index << " :" << std::endl;
 	std::cout << std::endl;
-	std::cout << "First name : "<< this->first_name << std::endl;
-	std::cout << "Last name : "<< this->last_name << std::endl;
-	std::cout << "Nick name : "<< this->nick_name << std::endl;
+	std::cout << "First name : " << this->first_name << std::endl;
+	std::cout << "Last name : " << this->last_name << std::endl;
+	std::cout << "Nick name : " << this->nick_name << std::endl;
 	std::cout << "Number of phone : " << this->number_of_phone << std::endl;
 	std::cout << "Darkest_secret : " << this->darkest_secret << std::endl;
 	std::cout << std::endl;
@@ -176,19 +185,28 @@ void PhoneBook::display_all_ph(int index, std::string str_search)
 
 void PhoneBook::search()
 {
-	int			index;
+	int	index;
+
 	std::string str_search;
 	index = 0;
-	this->display();
-	std::cout << std::endl;
-	std::cout << "Enter index : ";
-	getline(std::cin, str_search);
+	if (this->number_contact > -1)
+	{
+		this->display();
+		std::cout << std::endl;
+		std::cout << "Enter index : ";
+		getline(std::cin, str_search);
+	}
+	else
+	{
+		std::cout << "You d'ont have eny contact" << std::endl;
+		return ;
+	}
 	if (parssing(str_search))
 	{
 		index = atoi(str_search.c_str());
-		if(index > 7 || index < 0)
-		std::cout << "Sorry this index not exist !!" << std::endl;
-		else if (index == this->get_index(index))
+		if (index > 7 || index < 0)
+			std::cout << "Sorry this index not exist !!" << std::endl;
+		else if (this->number_contact > -1 && index == this->get_index(index))
 			this->display_all_ph(index, str_search);
 		else
 			std::cout << "Sorry this index not exist !!" << std::endl;
@@ -201,13 +219,11 @@ int	main(void)
 {
 	PhoneBook	contact;
 
-
 	std::string str;
 	while (1)
 	{
-		std::cout << "Enter command ";
+		std::cout << "Enter command ---> ";
 		getline(std::cin, str);
-
 		if (!strcmp(str.c_str(), "ADD"))
 		{
 			std::cout << std::endl;

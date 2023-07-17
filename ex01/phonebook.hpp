@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:25:57 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/17 01:10:49 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/17 22:37:11 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ class PhoneBook
 		int number_contact;
 	public:
 		void add();
+		PhoneBook();
+		~PhoneBook();
 		void display();
 		void search();
 		int get_number_contact();
