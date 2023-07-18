@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/17 23:01:14 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/18 21:57:00 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int PhoneBook::get_number_contact()
 bool	parssing_l(std::string str)
 {
 	int	i;
-	int	cont;
+	unsigned int	cont;
 
 	i = 0;
 	cont = 0;
@@ -151,9 +151,7 @@ PhoneBook::PhoneBook()
 	this->number_contact = -1;
 }
 
-PhoneBook::~PhoneBook()
-{
-}
+PhoneBook::~PhoneBook(){}
 
 void Contact::init(void)
 {
