@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 15:48:14 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/19 02:17:34 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/19 20:27:56 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,81 +142,14 @@
 
 
 
-#include <iostream>
-
-class Account {
-
-
-public:
-
-	typedef Account		t;
-
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
-	static int	getNbDeposits( void );
-	static int	getNbWithdrawals( void );
-	// static void	displayAccountsInfos( void );
-
-	Account( int initial_deposit );
-	~Account( void );
-
-	void	makeDeposit( int deposit );
-	bool	makeWithdrawal( int withdrawal );
-	int		checkAmount( void ) const;
-	void	displayStatus( void ) const;
-
-
-private:
-
-	static int	_nbAccounts;
-	static int	_totalAmount;
-	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals;
-
-//	static void	_displayTimestamp( void );
-
-	int				_accountIndex;
-	int				_amount;
-	int				_nbDeposits;
-	int				_nbWithdrawals;
-
-	Account( void );
-
-};
-
-Account::Account(int initial_deposit) : _nbDeposits(0) ,_nbWithdrawals(0)
-{
-	// int a;
-	// a = initial_deposit;
-}
-Account::~Account()
-{
-
-}
-// int Account::_nbAccounts = 0;
-// int Account::_totalAmount = 0;
-// int Account::_totalNbDeposits = 0;
-// int Account::_totalNbWithdrawals = 0;
-
-int Account::getNbAccounts() {
-    return _nbAccounts;
-}
-
-int Account::getTotalAmount() {
-    return _totalAmount;
-}
-
-int Account::getNbDeposits() {
-    return _totalNbDeposits; // Use static member variable _totalNbDeposits
-}
-
-int Account::getNbWithdrawals() {
-    return _totalNbWithdrawals; // Use static member variable _totalNbWithdrawals
-}
-
 // Rest of the class member function definitions...
 
 int main() {
-    std::cout << "abcd" << std::endl;
-    return 0;
+    std::time_t curent_time;
+	std::tm *time_info;
+	char buffer[80];
+	std::time(&curent_time);
+	time_info = std::localtime(&curent_time);
+	std::strftime(buffer,80,"[%Y%m%d_%H%M%S]",time_info);
+	std::puts(buffer);
 }
