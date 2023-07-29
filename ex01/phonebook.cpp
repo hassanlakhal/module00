@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/18 21:57:00 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/29 19:12:55 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int PhoneBook::get_number_contact()
 
 bool	parssing_l(std::string str)
 {
-	int	i;
+	int				i;
 	unsigned int	cont;
 
 	i = 0;
@@ -103,15 +103,26 @@ bool	parssing_l(std::string str)
 
 bool	parssing(std::string str)
 {
-	int	i;
+	int				i;
+	unsigned int	cont;
 
 	i = 0;
-	while (str.c_str()[i])
+	cont = 0;
+	while(str[i] && isspace(str[i]))
 	{
-		if (isdigit(str[i]))
-			return (true);
+		cont++;
 		i++;
 	}
+	if (!str[i])
+		return false;
+	while (str.c_str()[i])
+	{
+		if (isalpha(str[i]) || isspace(str[i]))
+			cont++;
+		i++;
+	}
+	if (cont == str.length())
+		return (true);
 	return (false);
 }
 
@@ -138,7 +149,7 @@ std::string Contact::rempler(std::string str)
 		}
 		else if (!str.compare("Your darkest secret : "))
 			return (input);
-		if (!parssing(input) && flag != 1)
+		if (parssing(input) && flag != 1)
 			return (input);
 		else if (flag == 0)
 			std::cout << "Invalid form for name" << std::endl;
@@ -151,7 +162,9 @@ PhoneBook::PhoneBook()
 	this->number_contact = -1;
 }
 
-PhoneBook::~PhoneBook(){}
+PhoneBook::~PhoneBook()
+{
+}
 
 void Contact::init(void)
 {
