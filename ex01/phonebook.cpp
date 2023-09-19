@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/29 19:12:55 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:36:03 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,12 +188,6 @@ void Contact::display_all(int index)
 	std::cout << std::endl;
 }
 
-void PhoneBook::display_all_ph(int index, std::string str_search)
-{
-	index = atoi(str_search.c_str());
-	phone[index].display_all(index);
-}
-
 void PhoneBook::search()
 {
 	int	index;
@@ -212,13 +206,13 @@ void PhoneBook::search()
 		std::cout << "You d'ont have eny contact" << std::endl;
 		return ;
 	}
-	if (parssing(str_search))
+	if (parssing_l(str_search))
 	{
 		index = atoi(str_search.c_str());
 		if (index > 7 || index < 0)
 			std::cout << "Sorry this index not exist !!" << std::endl;
 		else if (this->number_contact > -1 && index == this->get_index(index))
-			this->display_all_ph(index, str_search);
+			this->phone[index].display_all(index);
 		else
 			std::cout << "Sorry this index not exist !!" << std::endl;
 	}

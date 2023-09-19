@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:25:57 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/17 22:37:11 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:35:58 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 #define PHONEBOOK_HPP
 #include<iostream>
 #include<iomanip>
-#include<string>
+#include<cstring>
+#include <cstdlib>
+#include <cstdio>
 
 class Contact
 {
@@ -48,6 +50,5 @@ class PhoneBook
 		void search();
 		int get_number_contact();
 		int get_index(int index);
-		void display_all_ph(int index, std::string str_search);
 };
 #endif
