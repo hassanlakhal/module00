@@ -6,13 +6,13 @@
 #    By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/18 21:45:16 by hlakhal-          #+#    #+#              #
-#    Updated: 2023/09/16 11:34:43 by hlakhal-         ###   ########.fr        #
+#    Updated: 2023/09/24 17:36:06 by hlakhal-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRC = phonebook.cpp
+SRC = PhoneBook.cpp Contact.cpp
 
 CPPFLAG = -Wall -Wextra -Werror
 
