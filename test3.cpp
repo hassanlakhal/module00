@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 22:46:51 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/19 00:22:24 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:51:40 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 
 claassStatic::claassStatic(/* args */)
 {
-    number += 5;
+    number++;
 }
 
 claassStatic::~claassStatic()
@@ -36,7 +36,7 @@ void claassStatic::get_no_of_topics()
     std::cout << "The number of topics alredy ==>" << number << std::endl;    
 }
 
-int claassStatic::number; // static data number is defined 
+int claassStatic::number = 1; // static data number is defined 
 
 int main()
 {
