@@ -6,33 +6,39 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 23:31:52 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/10 23:46:24 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/25 00:30:42 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<iostream>
 #include<cstring>
 
-void convert_string(char *str)
+void convert_string(std::string str)
 {
 	int i;
-	int len;
 	i = 0;
-	len = strlen(str);
 
-	while(i < len)
+	while(i < (int)str.length())
 	{
-		putchar(toupper(str[i]));
+		std::cout << char(toupper(str[i]));
 		i++;
 	}
 }
 
 int main(int argc, char **argv)
 {
-	if(argc > 2)
-		std::cout << "DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF." << std::endl;
-	else if(argc == 2)
-		convert_string(argv[1]);
+	int i;
+
+	i = 1; 
+	if(argc >= 2)
+	{
+		while (i < argc)
+		{
+			convert_string(argv[i]);
+			i++;
+		}
+		std::cout << std::endl;
+	}
 	else if (argc == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 }
