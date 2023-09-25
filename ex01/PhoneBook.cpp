@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/25 00:18:37 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/25 20:21:26 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,25 +66,25 @@ void PhoneBook::search()
 	{
 		this->display();
 		std::cout << std::endl;
-		std::cout << "Enter index : ";
+		std::cout << "Enter an index : ";
 		getline(std::cin, str_search);
 		if (std::cin.eof())
 			exit(0);
 	}
 	else
 	{
-		std::cout << "You d'ont have eny contact" << std::endl;
+		std::cout << "You don't have any contact" << std::endl;
 		return ;
 	}
 	if (parssing_l(str_search))
 	{
 		index = atoi(str_search.c_str());
 		if (index > 7 || index < 0)
-			std::cout << "Sorry this index not exist !!" << std::endl;
+			std::cout << "Sorry this index does not exist !!" << std::endl;
 		else if (this->number_contact > -1 && index == this->id[index])
 			this->phone[index].display_all(index);
 		else
-			std::cout << "Sorry this index not exist !!" << std::endl;
+			std::cout << "Sorry this index does not exist !!" << std::endl;
 	}
 	else
 		std::cout << "Invalid form for index" << std::endl;
@@ -97,7 +97,7 @@ int	main(void)
 	std::string str;
 	while (1)
 	{
-		std::cout << "Enter command ---> ";
+		std::cout << "Enter a command ---> ";
 		getline(std::cin, str);
 		if (std::cin.eof())
 			exit(0);
@@ -111,6 +111,6 @@ int	main(void)
 		else if (str == "EXIT")
 			exit(0);
 		else
-			std::cout << "This command not exist !!" << std::endl;
+			std::cout << "This command does not exist !!" << std::endl;
 	}
 }

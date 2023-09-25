@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 17:28:10 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/24 17:48:38 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/25 19:56:23 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Contact
 		std::string nick_name;
 		std::string darkest_secret;
 		std::string number_of_phone;
+		void	dispaly(std::string str);
+		std::string rempler(std::string str);
 		int ID;
 	public:
 		void init();
@@ -33,7 +35,6 @@ class Contact
 		void display_all(int index);
 		int get_id();
 		void set_id(int index);
-		std::string rempler(std::string str);
 };
 bool	parssing_l(std::string str);
 bool	parssing(std::string str);

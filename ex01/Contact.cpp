@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 17:32:02 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/25 00:18:30 by hlakhal-         ###   ########.fr       */
+/*   Created: Invalid date        by hlakhal-          #+#    #+#             */
+/*   Updated: 2023/09/25 20:21:07 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Contact.hpp"
 
-void	dispaly(std::string str)
+void	Contact::dispaly(std::string str)
 {
 	if (str.length() > 10)
 		std::cout << std::setw(9) << str.substr(0, 9) << ".|";
