@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 17:32:02 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/24 18:02:55 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/25 00:18:30 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ std::string Contact::rempler(std::string str)
 	{
 		std::cout << str;
 		getline(std::cin, input);
+		if (std::cin.eof())
+			exit(0);
 		if (!str.compare("Your number phone : "))
 		{
 			if (parssing_l(input))

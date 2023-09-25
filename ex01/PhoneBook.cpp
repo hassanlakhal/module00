@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 00:26:00 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/24 17:59:36 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/25 00:18:37 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void PhoneBook::search()
 		std::cout << std::endl;
 		std::cout << "Enter index : ";
 		getline(std::cin, str_search);
+		if (std::cin.eof())
+			exit(0);
 	}
 	else
 	{
@@ -97,6 +99,8 @@ int	main(void)
 	{
 		std::cout << "Enter command ---> ";
 		getline(std::cin, str);
+		if (std::cin.eof())
+			exit(0);
 		if (str == "ADD")
 		{
 			std::cout << std::endl;
