@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 17:28:10 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/25 19:56:23 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/27 00:59:24 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 #define CONTACT_HPP
 #include<iostream>
 #include<iomanip>
-#include<cstring>
 #include <cstdlib>
-#include <cstdio>
 
 class Contact
 {
