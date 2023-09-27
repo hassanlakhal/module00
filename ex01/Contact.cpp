@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/25 20:21:07 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/27 01:27:33 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int Contact::get_id()
 {
 	return (ID);
 }
+
+Contact::Contact(){}
+Contact::~Contact(){}
 
 void Contact::init(void)
 {

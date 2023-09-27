@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 17:28:10 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/27 00:59:24 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/27 01:26:39 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Contact
 	public:
 		void init();
 		void display_info();
+		Contact();
+		~Contact();
 		void display_all(int index);
 		int get_id();
 		void set_id(int index);
