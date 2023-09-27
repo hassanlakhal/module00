@@ -6,12 +6,11 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 23:31:52 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/25 00:30:42 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/27 00:45:24 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<iostream>
-#include<cstring>
 
 void convert_string(std::string str)
 {
@@ -20,7 +19,7 @@ void convert_string(std::string str)
 
 	while(i < (int)str.length())
 	{
-		std::cout << char(toupper(str[i]));
+		std::cout << char(std::toupper(str[i]));
 		i++;
 	}
 }

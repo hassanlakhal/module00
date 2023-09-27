@@ -6,7 +6,7 @@
 #    By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/18 22:05:00 by hlakhal-          #+#    #+#              #
-#    Updated: 2023/07/18 22:13:23 by hlakhal-         ###   ########.fr        #
+#    Updated: 2023/09/27 00:44:19 by hlakhal-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,16 @@ NAME = megaphone
 
 SRC = megaphone.cpp
 
-CPPFLAG = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror
 
 OBJ = $(SRC:.cpp=.o)
 
-CC = c++ -std=c++98
+CXX = c++ -std=c++98
 
 all:megaphone
 
 megaphone:$(OBJ)
-				$(CC) $(CPPFLAG) $(SRC) -o megaphone
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
 clean:
 	rm -rf $(OBJ)
 fclean:
