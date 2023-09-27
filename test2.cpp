@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 22:14:38 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/18 18:11:33 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/27 00:37:50 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,13 @@ void firstClass::getVal()
 }
 int main()
 {
+    int a = 'a';
+    std::cout << a << std::endl;
     firstClass obj("abcd","sssss");
+    std::string str;
+    str = "ggg";
+    // str.operator+=str;
+    std::cout << str << std::endl;
     obj.getVal();
     firstClass obj1;
     obj1.getVal();

@@ -6,7 +6,7 @@
 #    By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/19 00:00:24 by hlakhal-          #+#    #+#              #
-#    Updated: 2023/09/25 20:23:13 by hlakhal-         ###   ########.fr        #
+#    Updated: 2023/09/27 01:08:46 by hlakhal-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,14 @@ NAME = Account
 
 SRC = Account.cpp tests.cpp
 
-CPPFLAG = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror
 
-CPP = c++ -std=c++98
+CXX = c++ -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CPP) $(CPPFLAG) $(SRC) -o $(NAME)
+		$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
 
 OBJ = $(SRC:.cpp=.o)
 

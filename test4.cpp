@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:35:10 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/19 18:39:10 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/09/26 01:35:20 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Sample::~Sample(void)
 
 int	Sample::getFoo(void) const
 {
-    this->_foo = 1;
+	this->_foo = 1;
 	return this->_foo;
 }
 
@@ -57,8 +57,6 @@ int	Sample::compare(Sample *other) const
 		return (1);
 	return (0);
 }
-
-
 
 class persent
 {

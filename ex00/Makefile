@@ -6,7 +6,7 @@
 #    By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/18 22:05:00 by hlakhal-          #+#    #+#              #
-#    Updated: 2023/09/27 00:44:19 by hlakhal-         ###   ########.fr        #
+#    Updated: 2023/09/27 01:08:30 by hlakhal-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ = $(SRC:.cpp=.o)
 
 CXX = c++ -std=c++98
 
-all:megaphone
+all:$(NAME)
 
 megaphone:$(OBJ)
 	$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
